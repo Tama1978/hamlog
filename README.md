@@ -2,6 +2,8 @@ Hello! Welcome to HamLog
 
 HamLog is a free tool for logging your Ham Radio COntacts on Windows.
 
+Current Version: Beta 0.1
+
 -- Developer Information --
 
 Flynn (Tama) - ZL3FTB
