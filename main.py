@@ -19,7 +19,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.load_logbook()
 
     def log_contact_clicked(self):
-        # Get the values from the form
         date_time = self.dateTimeEdit.dateTime().toString()
         callsign = self.callsignEdit.text()
         name = self.nameEdit.text()
@@ -31,7 +30,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         unit = self.unitCombo.currentText()
         band = self.bandCombo.currentText()
 
-        # Save the values to a CSV file
         with open('logbook.csv', 'a', newline='') as csvfile:
             fieldnames = ['date_time', 'callsign', 'name', 'location', 'station_type', 'signal_report', 'comments', 'frequency', 'unit', 'band']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -52,11 +50,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 'band': band
             })
 
-        # Show a message box to confirm the contact has been logged
         QMessageBox.information(self, "Contact Logged", "The contact has been logged successfully.")
 
     def clear_form_clicked(self):
-        # Clear the form
         self.dateTimeEdit.setDateTime(self.dateTimeEdit.minimumDateTime())
         self.callsignEdit.clear()
         self.nameEdit.clear()
@@ -69,11 +65,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bandCombo.setCurrentIndex(0)
 
     def exit_app(self):
-        # Exit the application
         QApplication.quit()
 
     def export_as_csv(self):
-        # Export the logbook as a CSV file
         with open('logbook.csv', 'r') as csvfile:
             reader = csv.reader(csvfile)
             logbook = list(reader)
@@ -82,15 +76,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             writer = csv.writer(csvfile)
             writer.writerows(logbook)
 
-        # Show a message box to confirm the logbook has been exported
         QMessageBox.information(self, "Logbook Exported", "The logbook has been exported successfully.")
 
     def erase_all_logs(self):
-        # Erase all logs
         with open('logbook.csv', 'w') as csvfile:
             pass
 
-        # Show a message box to confirm the logs have been erased
         QMessageBox.information(self, "Logs Erased", "All logs have been erased successfully.")
 
     def load_logbook(self):
