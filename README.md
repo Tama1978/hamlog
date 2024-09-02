@@ -1,8 +1,8 @@
 Hello! Welcome to HamLog
 
-HamLog is a free tool for logging your Ham Radio COntacts on Windows.
+HamLog is a free tool for logging your Ham Radio Contacts on Windows.
 
-Current Version: Beta 0.1
+Current Version: Release 1.0
 
 -- Developer Information --
 
