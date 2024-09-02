@@ -1,13 +1,14 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMenu, QAction, QTabWidget, QWidget, QVBoxLayout, QTableWidget, QTableWidgetItem, QHBoxLayout, QDateEdit, QTimeEdit, QLineEdit, QDoubleSpinBox, QComboBox, QTextEdit, QPushButton, QFormLayout, QLabel
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QFont, QIcon
 from station_ui import StationUI
 
 class HamRadioLogbook(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("HamLog")
+        self.setWindowIcon(QIcon('HamLog-Logo.png'))
         self.setGeometry(0, 0, 800, 600)
         self.showMaximized()
         self.create_menu_bar()

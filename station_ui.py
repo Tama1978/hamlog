@@ -1,6 +1,7 @@
 import sys
 import json
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QGridLayout, QTabWidget, QTextBrowser
+from PyQt5.QtGui import QIcon
 
 class StationUI(QWidget):
     def __init__(self):
@@ -10,7 +11,8 @@ class StationUI(QWidget):
 
     def initUI(self):
         self.setWindowTitle("My Station")
-        self.setGeometry(300, 300, 300, 200)
+        self.setWindowIcon(QIcon('HamLog-Logo.png'))
+        self.setGeometry(300, 300, 400, 200)
         tab_widget = QTabWidget()
         tab_info = QWidget()
         layout_info = QGridLayout()
