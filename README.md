@@ -1,15 +1,19 @@
-Hello! Welcome to HamLog
+# Hello! Welcome to HamLog
 
-HamLog is a free tool for logging your Ham Radio Contacts on Windows.
+HamLog is a free open-source tool for logging your Ham Radio Contacts!
 
-Current Version: Release 1.0
+With HamLog you can log your HAM Radio Contacts, View them, Edit them, and Export them.
+Got a bug to report or a feature to request? Join our Discord Server linked down below!
 
--- Developer Information --
+Current Version: **Release 1.0**
+
+**-- Developer Information --**
 
 Flynn (Tama) - ZL3FTB
 Tamatu Systems NZ
-tamasystems.nz
+https://tamasystems.nz
 
-Support:
+**Support & Enquiries:**
 
-hamlog@tamasystems.nz
+Email: hamlog@tamasystems.nz
+Discord Server: https://discord.gg/zYarZq9Raa
