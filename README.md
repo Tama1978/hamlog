@@ -1,8 +1,8 @@
 # Hello! Welcome to CommTrack
 
-ComTrack (Formerly HamLog) is a free open-source tool for logging your Ham Radio Contacts!
+CommTrack (Formerly HamLog) is a free open-source tool for logging your Ham Radio Contacts!
 
-With COmmTrack you can log your HAM Radio Contacts, View them, Edit them, and Export them.
+With CommTrack you can log your HAM Radio Contacts, View them, Edit them, and Export them.
 Got a bug to report or a feature to request? Join our Discord Server linked down below!
 
 Current Release: **v1.0.0**
