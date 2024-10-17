@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
+from PyQt5.QtWebEngineWidgets import QWebEngineView
 from ui.station_ui import StationUI
 
 class HamRadioLogbook(QMainWindow):
@@ -75,8 +76,10 @@ class HamRadioLogbook(QMainWindow):
         self.tab_widget.setMovable(True)
         tab1 = QWidget()
         tab2 = QWidget()
+        tab3 = QWidget()
         self.tab_widget.addTab(tab1, "New Contact")
         self.tab_widget.addTab(tab2, "View Contacts")
+        self.tab_widget.addTab(tab3, "Mapping")
         tab1_layout = QVBoxLayout()
         tab1_layout.setContentsMargins(20, 20, 20, 20)
         tab1_layout.setSpacing(20)
@@ -375,6 +378,15 @@ class HamRadioLogbook(QMainWindow):
         self.table_widget.horizontalHeader().setStretchLastSection(True)
         tab2_layout.addWidget(self.table_widget)
         tab2.setLayout(tab2_layout)
+        layout.addWidget(self.tab_widget)
+        self.central_widget.setLayout(layout)
+        mapping_layout = QVBoxLayout()
+        self.map_view = QWebEngineView()
+        mapping_layout.addWidget(self.map_view)
+        self.generate_map_button = QPushButton("Generate Map")
+        self.generate_map_button.clicked.connect(self.generate_map)
+        mapping_layout.addWidget(self.generate_map_button)
+        tab3.setLayout(mapping_layout)
         layout.addWidget(self.tab_widget)
         self.central_widget.setLayout(layout)
 

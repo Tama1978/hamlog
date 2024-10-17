@@ -48,6 +48,14 @@ class StationUI(QWidget):
         self.location_input_edit = QLineEdit()
         layout_edit.addWidget(label_location_edit, 2, 0)
         layout_edit.addWidget(self.location_input_edit, 2, 1)
+        label_latitude_edit = QLabel("Latitude:")
+        self.latitude_input_edit = QLineEdit()
+        layout_edit.addWidget(label_latitude_edit, 4, 0)
+        layout_edit.addWidget(self.latitude_input_edit, 4, 1)
+        label_longitude_edit = QLabel("Longitude:")
+        self.longitude_input_edit = QLineEdit()
+        layout_edit.addWidget(label_longitude_edit, 5, 0)
+        layout_edit.addWidget(self.longitude_input_edit, 5, 1)
         label_notes_edit = QLabel("Notes:")
         self.notes_input_edit = QTextBrowser()
         self.notes_input_edit.setReadOnly(False)
@@ -55,7 +63,7 @@ class StationUI(QWidget):
         layout_edit.addWidget(self.notes_input_edit, 3, 1)
         save_button = QPushButton("Save")
         save_button.clicked.connect(self.save_station_info)
-        layout_edit.addWidget(save_button, 4, 1)
+        layout_edit.addWidget(save_button, 6, 1)
         tab_edit.setLayout(layout_edit)
         tab_widget.addTab(tab_info, "Station Info")
         tab_widget.addTab(tab_edit, "Edit Station")
@@ -72,18 +80,22 @@ class StationUI(QWidget):
         callsign = self.callsign_input_edit.text()
         location = self.location_input_edit.text()
         notes = self.notes_input_edit.toPlainText()
+        latitude = self.latitude_input_edit.text()  # Get latitude
+        longitude = self.longitude_input_edit.text()  # Get longitude
         self.name_label.setText(name)
         self.callsign_label.setText(callsign)
         self.location_label.setText(location)
         self.notes_label.setText(notes)
-        self.save_to_file(name, callsign, location, notes)
+        self.save_to_file(name, callsign, location, notes, latitude, longitude)
 
-    def save_to_file(self, name, callsign, location, notes):
+    def save_to_file(self, name, callsign, location, notes, latitude, longitude):
         data = {
             "name": name,
             "callsign": callsign,
             "location": location,
-            "notes": notes
+            "notes": notes,
+            "latitude": latitude,
+            "longitude": longitude
         }
 
         with open("station_info.json", "w") as file:
@@ -97,6 +109,12 @@ class StationUI(QWidget):
                 self.callsign_label.setText(data["callsign"])
                 self.location_label.setText(data["location"])
                 self.notes_label.setText(data["notes"])
+                self.latitude_input_edit.setText(data.get("latitude", ""))
+                self.longitude_input_edit.setText(data.get("longitude", ""))
+                self.name_input_edit.setText(data["name"])
+                self.callsign_input_edit.setText(data["callsign"])
+                self.location_input_edit.setText(data["location"])
+                self.notes_input_edit.setText(data["notes"])
         except FileNotFoundError:
             print("Station info file not found.")
         except json.JSONDecodeError:

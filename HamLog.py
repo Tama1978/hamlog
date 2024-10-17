@@ -7,6 +7,12 @@ import adif_io as adif
 import sys
 import csv
 import os
+import json
+import folium
+import folium.plugins
+import folium.plugins.draw
+from PyQt5.QtWidgets import QFileDialog
+from geopy.geocoders import Nominatim
 
 class MainWindow(HamRadioLogbook):
     def __init__(self):
@@ -29,6 +35,44 @@ class MainWindow(HamRadioLogbook):
         self.table_widget.setHorizontalHeaderItem(11, QTableWidgetItem("QSO Duration"))
         self.table_widget.setHorizontalHeaderItem(12, QTableWidgetItem("Notes"))
         self.load_logbook()
+
+    def get_coordinates(self, location):
+        geolocator = Nominatim(user_agent="ham_radio_logbook")
+        try:
+            location = geolocator.geocode(location)
+            if location:
+                return [location.latitude, location.longitude]
+        except Exception as e:
+            print(f"Error getting coordinates for {location}: {e}")
+        return None
+
+    def generate_map(self):
+        try:
+            with open('station_info.json', 'r') as f:
+                station_info = json.load(f)
+            map = folium.Map(location=[station_info['latitude'], station_info['longitude']], zoom_start=12)
+            folium.Marker([station_info['latitude'], station_info['longitude']], popup=station_info['name']).add_to(map)
+
+            folium.plugins.Draw(
+                export=True,
+                position='topright',
+                draw_options={
+                    'polyline': True,
+                    'polygon': True,
+                    'rectangle': True,
+                    'circle': True,
+                    'marker': True,
+                },
+                edit_options={
+                    'edit': True,
+                }
+            ).add_to(map)
+
+            map.save('map.html')
+
+            self.map_view.setUrl(QUrl.fromLocalFile(os.path.abspath('map.html')))
+        except Exception as e:
+            QMessageBox.critical(self, "Error", "Failed to load station coordinates: " + str(e))
 
     def create_menu_bar_connections(self):
         menu_bar = self.menuBar()
