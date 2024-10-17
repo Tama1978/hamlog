@@ -5,7 +5,8 @@ HamLog is a free open-source tool for logging your Ham Radio Contacts!
 With HamLog you can log your HAM Radio Contacts, View them, Edit them, and Export them.
 Got a bug to report or a feature to request? Join our Discord Server linked down below!
 
-Current Version: **Release 1.0**
+Current Release: **v1.0.0**
+Most Recent Version: **v1.1.0**
 
 **-- Developer Information --**
 
