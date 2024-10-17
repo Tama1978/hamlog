@@ -6,7 +6,7 @@ With HamLog you can log your HAM Radio Contacts, View them, Edit them, and Expor
 Got a bug to report or a feature to request? Join our Discord Server linked down below!
 
 Current Release: **v1.0.0**
-Most Recent Version: **v1.1.0**
+Most Recent Version: **v1.1.0**x
 
 **-- Developer Information --**
 
