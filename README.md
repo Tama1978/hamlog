@@ -1,8 +1,8 @@
-# Hello! Welcome to HamLog
+# Hello! Welcome to CommTrack
 
-HamLog is a free open-source tool for logging your Ham Radio Contacts!
+ComTrack (Formerly HamLog) is a free open-source tool for logging your Ham Radio Contacts!
 
-With HamLog you can log your HAM Radio Contacts, View them, Edit them, and Export them.
+With COmmTrack you can log your HAM Radio Contacts, View them, Edit them, and Export them.
 Got a bug to report or a feature to request? Join our Discord Server linked down below!
 
 Current Release: **v1.0.0**
@@ -16,5 +16,5 @@ https://tamasystems.nz
 
 **Support & Enquiries:**
 
-Email: hamlog@tamasystems.nz
+Email: commtrack@tamasystems.nz
 Discord Server: https://discord.gg/zYarZq9Raa
